@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Speech demo</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <style>
+      html{
+        background-color: #DFFAF1   ;
+        overflow-x: hidden;
+      }
+
+      #title{
+        position: fixed;
+        margin-top:0;
+        top: 0.6em;
+        font-size: 3.5em;
+        color: #3FD2C7;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      #content{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 7em;
+        margin-bottom: auto;
+        width: 38vw;
+        height: 38vw;
+        background-color: #00458B;
+        over
+      }
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      #content::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE and Edge */
+      #content {
+        -ms-overflow-style: none;
+      }
+
+      .btn-floating{
+        background-color: #00a8cc;
+      }
+      .btn-floating:hover{
+        background-color: #005082;
+      }
+      #content a{
+        position: absolute;
+      }
+      #startButton{
+          bottom:12px;
+          left:12px;
+      }
+      #stopButton{
+          bottom:12px;
+          right:12px;
+      }
+      #cancelButton{
+        left: 50%;
+        bottom: 12px;
+        transform:translateX(-50%);
+      }
+
+
+      /* The animation code */
+        @keyframes textFadeIn {
+          0% {color: #00458B ;  visibility:hidden; }
+          60% { visibility:visible;}
+          100% {color: #FFF ;   }
+        }
+
+        @keyframes textFadeOut {
+          0% {color: #FFF ;  visibility:visible;; }
+          100% {color: #00458B ; visibility:hidden;}
+        }
+
+        /* The element to apply the animation to */
+        #animate {
+          color: #FFF;
+          padding:0.5em;
+          font-size: 2em;
+        }
+
+        .animation {
+          animation-name: textFadeIn;
+          animation-duration: 1.5s;
+        }
+
+        .removeAnimation{
+          animation-name: textFadeOut;
+          animation-duration: 0.3s;
+        }
+        .spanner{
+          margin-top: 1em;
+          width:100vw;
+          background-color: #00458B ;
+          color: white;
+          text-align: center;
+          height: 2em;
+          font-size: 2em;
+        }
+        .lowerhalf{
+          width:100vw;
+          color:white;
+          background-color: #3FD2C7 ;
+        }
+
+    </style>
+
+
+  </head>
+  <body>
+
+    <h2 id='title'>Okay Demo</h2>
+    <div id='content'>
+        <div id="displayImages"></div>
+
+      <div id ="animate-container">
+        <p id ="animate" class="flow-text"></p>
+      </div>
+
+      <a  id="startButton" class="btn-floating btn waves-effect waves-dark "> <i class=" material-icons">play_arrow</i></a>
+      <a  id="stopButton" class="btn-floating btn waves-effect waves-dark "> <i class=" material-icons">pause</i></a>
+      <a  id="cancelButton" class="btn-floating btn waves-effect waves-dark red"> <i class=" material-icons">stop</i></a>
+
+    </div>
+
+    <div class="spanner">
+       <div class="container">
+       Activate by saying "Okay Demo"
+       </div>
+    </div>
+
+    <div class=" lowerhalf">
+       <div class=" container section">
+
+         <!--   Icon Section   -->
+         <div class="row">
+           <div class="col s12 m4">
+             <div class="icon-block">
+               <h5 class="center">What is this?</h5>
+
+               <p class="">
+
+                 "Okay Demo" is a simple virtual assistant created in vanilla javascript and web API's. Web Speech Recognition and Web Speech Synthesis API's are the underlying technologies that make this project work.
+                 These API's are wrapped in a voice wrapper class which is utilized by a Virtual Assistant Class which simplifies the creation of your virtual assistant, and addition of commands and actions.
+
+                </p>
+             </div>
+           </div>
+
+           <div class="col s12 m4">
+             <div class="icon-block">
+               <h5 class="center">How do I use it?</h5>
+
+               <p class="">
+                 To use this assistant you must first click the "play" button to enable the assistant. Secondly, you must use the activation pharse, "okay demo" to awaken Demo. After that you must state your command.
+                 At this time Demo can only fetch dog photos, fetch dog photos, play fortnite, and tell jokes.
+                 <br><br>The center "stop" button will end all voice synthesis the browser has queued.
+                 <br><br>The pause button will stop the virtual assistant.
+               </p>
+             </div>
+           </div>
+
+           <div class="col s12 m4">
+             <div class="icon-block">
+               <h5 class="center">How does it work?</h5>
+
+               <p class="">
+                To expand upon the "What is this?" description, the underlying tech used are the Web Speech Recognition and Synthesis API's that are wrapped into ES6 Javascript classes for easier usage.
+                The virtual assistant exists in states. Depending on the state, we compare the user input to the activation command, or the commands given to the assistant. We use event listeners to keep everything
+                asynchronous.
+
+               </p>
+             </div>
+           </div>
+         </div>
+
+       </div>
+       <br><br>
+     </div>
+
+        <script src="ComputerVoice.js"></script>
+        <script src="VirtualAssistant.js"></script>
+        <script src="demo.js"></script>
+
+  </body>
+</html>
